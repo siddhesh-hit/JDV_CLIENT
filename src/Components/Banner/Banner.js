@@ -139,10 +139,13 @@ const Banner = () => {
             </Link>
           </div>
           <div className="item">
-            <div className="insuranc">
-              <img src={Group} alt="Motor Insurance" />
-              <p>Group Medical</p>
-            </div>
+            {" "}
+            <Link to="/Groupinsurance">
+              <div className="insuranc">
+                <img src={Group} alt="Motor Insurance" />
+                <p>Group Medical</p>
+              </div>{" "}
+            </Link>
           </div>
           <div className="item">
             <div className="insuranc">

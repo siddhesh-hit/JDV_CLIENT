@@ -358,8 +358,6 @@ const MotorContextAppProvider = ({ children }) => {
     localStorage.setItem("comparematch", JSON.stringify(comparematch));
   }, [compareselect, comparematch]);
 
-
-
   // Individual Insurance
 
   const getInitialIndividualFormData = () => {
@@ -508,6 +506,48 @@ const MotorContextAppProvider = ({ children }) => {
     }
   }, []);
 
+  // group insurance
+  const getInitialGroupFormData = () => {
+    // Check if data already exists in localStorage
+    const storedFormData = localStorage.getItem("GroupInsurance");
+    if (storedFormData) {
+      return JSON.parse(storedFormData);
+    } else {
+      // Set your default values here
+      return {
+        other_insurance_option: null,
+        full_name: null,
+        email: null,
+        age: null,
+        phone_number: null,
+        brief_info: null,
+        prefer_day_to_call: null,
+        prefer_time_to_call: null,
+        insuranceType: "Other",
+      };
+    }
+  };
+  const [GroupInsurance, setGroupInsurance] = useState(getInitialGroupFormData);
+
+  const handleGroupInsurance = (e) => {
+    const value = e.target.value === "Any" ? null : e.target.value;
+    const name = e.target.name;
+
+    console.log(value, name);
+
+    setGroupInsurance((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+    localStorage.setItem("GroupInsurance", JSON.stringify(GroupInsurance));
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("GroupInsurance")) {
+      setGroupInsurance(JSON.parse(localStorage.getItem("GroupInsurance")));
+    }
+  }, []);
+
   const state = {
     // motor States
     motorFormsData,
@@ -528,6 +568,9 @@ const MotorContextAppProvider = ({ children }) => {
     OtherInsurance,
     setOtherInsurance,
     handleOtherInsurance,
+    GroupInsurance,
+    setGroupInsurance,
+    handleGroupInsurance,
     HomeInsurance,
     setHomeInsurance,
     handleHomeInsurance,

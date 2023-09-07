@@ -110,6 +110,8 @@ import Travelplantype from "./Components/Travel/Travelplantype";
 import Individualpolicy from "./Components/Individualinsurance/Individualpolicy";
 import Individualcondition from "./Components/Individualinsurance/Individualcondition";
 import Individualtnc from "./Components/Individualinsurance/Individualtnc";
+import Groupinsurance from "./Components/Groupinsurance/Groupinsurance";
+import Groupinsurancesubmit from "./Components/Groupinsurance/Groupinsurancesubmit";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const { usertoken } = UseUserContext();
@@ -159,14 +161,8 @@ function App() {
             <Route path="/Selectedquotes" element={<Selectedquotes />} />
             <Route path="/Payments" element={<Payments />} />
             <Route path="/Familydetails" element={<Familydetails />} />
-            <Route
-              path="/Beneficarydetails"
-              element={<Beneficarydetails />}
-            />
-            <Route
-              path="/Termsandcondition"
-              element={<Termsandcondition />}
-            />
+            <Route path="/Beneficarydetails" element={<Beneficarydetails />} />
+            <Route path="/Termsandcondition" element={<Termsandcondition />} />
             <Route path="/Yatchdetails" element={<Yatchdetails />} />
             <Route
               path="/Yatchpersonaldetails"
@@ -174,10 +170,7 @@ function App() {
             />
             <Route path="/Enginedetails" element={<Enginedetails />} />
             <Route path="/Suminsured" element={<Suminsured />} />
-            <Route
-              path="/Territorycoverage"
-              element={<Territorycoverage />}
-            />
+            <Route path="/Territorycoverage" element={<Territorycoverage />} />
             <Route path="/CancelledPolicies" element={<CancelledPolicies />} />
             <Route path="/SubmitDocument" element={<SubmitDocument />} />
             <Route path="/Claimsexperience" element={<Claimsexperience />} />
@@ -218,14 +211,18 @@ function App() {
               path="/Otherinsurancesubmit"
               element={<Otherinsurancesubmit />}
             />
+
+            <Route path="/Groupinsurance" element={<Groupinsurance />} />
+            <Route
+              path="/Groupinsurancesubmit"
+              element={<Groupinsurancesubmit />}
+            />
+
             <Route
               path="/Individualinsurancepersonaldetails"
               element={<Individualinsurancepersonaldetails />}
             />
-            <Route
-              path="/Individualcountry"
-              element={<Individualcountry />}
-            />
+            <Route path="/Individualcountry" element={<Individualcountry />} />
             <Route
               path="/Individualinsuranceids"
               element={<Individualinsuranceids />}
@@ -258,10 +255,7 @@ function App() {
               path="/Individualinsurancequote"
               element={<Individualinsurancequote />}
             />
-            <Route
-              path="/Individualpolicy"
-              element={<Individualpolicy />}
-            />
+            <Route path="/Individualpolicy" element={<Individualpolicy />} />
             {/* <Route
                 path="/Individualadditionaldetails"
                 element={<Individualadditionaldetails />}
@@ -271,92 +265,56 @@ function App() {
               element={<Individualselectedquote />}
             />
 
-            <Route
-              path="/Individualcompare"
-              element={<Individualcompare />}
-            />
+            <Route path="/Individualcompare" element={<Individualcompare />} />
 
             <Route
               path="/Individualcondition"
               element={<Individualcondition />}
             />
 
-            <Route
-              path="/Individualtnc"
-              element={<Individualtnc />}
-            />
+            <Route path="/Individualtnc" element={<Individualtnc />} />
+
+            <Route path="/Individualmetrics" element={<Individualmetrics />} />
 
             <Route
-              path="/Individualmetrics"
-              element={<Individualmetrics />}
-            />
-
-<Route
               path="/Individualthankyou"
               element={<Individualthankyou />}
             />
 
-            <Route
-              path="/Individualpayment"
-              element={<Individualpayment />}
-            />
+            <Route path="/Individualpayment" element={<Individualpayment />} />
             <Route path="/ResetPassword/:token" element={<ResetPassword />} />
             <Route path="/emailverify/:token" element={<VerifyEmail />} />
             <Route path="/Traveldetails" element={<Traveldetails />} />
-            <Route
-              path="/Traveldetailsform"
-              element={<Traveldetailsform />}
-            />
+            <Route path="/Traveldetailsform" element={<Traveldetailsform />} />
             <Route
               path="/Travelpersonalform"
               element={<Travelpersonalform />}
             />
             <Route path="/Familydetails" element={<Familydetails />} />
-            <Route
-              path="/Beneficarydetails"
-              element={<Beneficarydetails />}
-            />
+            <Route path="/Beneficarydetails" element={<Beneficarydetails />} />
             <Route path="/Travelquotes" element={<Travelquotes />} />
-            <Route
-              path="/Travelcomparision"
-              element={<Travelcomparision />}
-            />
+            <Route path="/Travelcomparision" element={<Travelcomparision />} />
             <Route
               path="/TravelSelectedquotes"
               element={<TravelSelectedquotes />}
             />
-            <Route
-              path="/TravelComparelist"
-              element={<TravelComparelist />}
-            />
-            <Route
-              path="/Termsandcondition"
-              element={<Termsandcondition />}
-            />
-            <Route
-              path="/Travelplantype"
-              element={<Travelplantype />}
-            />
+            <Route path="/TravelComparelist" element={<TravelComparelist />} />
+            <Route path="/Termsandcondition" element={<Termsandcondition />} />
+            <Route path="/Travelplantype" element={<Travelplantype />} />
             <Route path="/TravelPayments" element={<TravelPayments />} />
             <Route path="/ThankYou" element={<ThankYou />} />
             {/* Dashboard */}
             <Route
               path="/Mypolicies"
-              element={
-                usertoken ? <Mypolicies /> : <Navigate replace to="/" />
-              }
+              element={usertoken ? <Mypolicies /> : <Navigate replace to="/" />}
             />
             <Route
               path="/Myprofile"
-              element={
-                usertoken ? <Myprofile /> : <Navigate replace to="/" />
-              }
+              element={usertoken ? <Myprofile /> : <Navigate replace to="/" />}
             />
             <Route
               path="/Claimlist"
-              element={
-                usertoken ? <Claimlist /> : <Navigate replace to="/" />
-              }
+              element={usertoken ? <Claimlist /> : <Navigate replace to="/" />}
             />
             <Route
               path="/Policiesrenewal"
@@ -372,9 +330,7 @@ function App() {
             />
             <Route
               path="/Claimform"
-              element={
-                usertoken ? <Claimform /> : <Navigate replace to="/" />
-              }
+              element={usertoken ? <Claimform /> : <Navigate replace to="/" />}
             />
             <Route path="/SelectCarvalue" element={<SelectCarvalue />} />
             <Route path="/Specialoffer" element={<SpecialOffer />} />
